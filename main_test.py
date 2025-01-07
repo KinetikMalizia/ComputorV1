@@ -73,7 +73,6 @@ def test_with_ans(sys):
       else:
         print(bcolors.FAIL + "KO" + bcolors.ENDC)
         print("Expected: " + str(rounded_roots))
-    #print(f"roots: {np.roots(equ)}")
   print(f"Result : {success}/{total_tests * 2}")
 
 def generate_random_polynomials(max_exp):
