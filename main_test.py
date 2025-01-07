@@ -33,9 +33,6 @@ def main():
   elif (sys.argv[1] == "T"):
     test_with_ans(sys)
     return
-  elif (sys.argv[1] == "W"):
-    cust_test()
-    return
   else:
     equations = sys.argv[1:]
 
