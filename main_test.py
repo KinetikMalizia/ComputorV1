@@ -45,8 +45,9 @@ def main():
 
 
 def test_with_ans(sys):
-  total_tests = 10000
+  total_tests = 100000
   success = 0
+  fails = []
   if (len(sys.argv) == 3 and sys.argv[2].isdigit()):
     total_tests = int(sys.argv[2])
   quad = [generate_clean_polynomials(2) for _ in range(total_tests)]
@@ -73,7 +74,12 @@ def test_with_ans(sys):
       else:
         print(bcolors.FAIL + "KO" + bcolors.ENDC)
         print("Expected: " + str(rounded_roots))
+        fails.append((ans_t, rounded_roots, roots))
   print(f"Result : {success}/{total_tests * 2}")
+  if fails:
+    print("\nFailed cases:")
+    for ans_t, rounded_roots, roots in fails:
+      print(f"Got: {ans_t}, Expected: {rounded_roots} BASE: {roots}")
 
 def generate_random_polynomials(max_exp):
 
